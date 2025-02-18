@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoApp</title>
+
+</head>
+<body>  
+    <h1>To-Do List</h1>
+
+    <label for = "projectDropdown">Select Project: </label>
+    <select id = "projectDropdown"></select>
+    <button id = "newProject">Add Project</button>
+
+    <input type = "text" id = "toDoTitle">
+    <input type = "text" id = "toDoDescription">
+    <input type = "date" id = "toDoDate">
+    <select id = "toDoPriority">
+        <option value = "Low">Low</option>
+        <option value = "Medium">Medium</option>
+        <option value = "Hign">High</option>
+    </select>
+
+    <label>
+        <input type = "checkbox" id = "toDoChecklist"> Completed
+    </label>
+
+    <button id = "toDo">Add ToDo</button>
+
+    <ul id = "toDoList"></ul>
+
+
+
+
+    <script src = "bundle.js"></script>
+</body>
+</html>
