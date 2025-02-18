@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-white font-sans h-screen flex flex-col md:flex-row">
+
+    <!-- Mobile Menu Button (Smaller & Bottom Margin) -->
+    <button id="toggleSidebar" class="md:hidden px-4 py-2 text-sm bg-gray-800 text-white rounded mb-2 fixed top-4 left-4 z-50">
+        ☰ Projects
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-gray-900 text-white flex flex-col fixed md:relative h-full transition-transform transform -translate-x-full md:translate-x-0 z-40">
+        <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+            <h1 class="text-xl font-semibold">Projects</h1>
+            <button id="closeSidebar" class="md:hidden text-gray-400 hover:text-white">✖</button>
+        </div>
+        <nav class="flex-grow overflow-y-auto p-6">
+            <ul id="projectList" class="space-y-2"></ul>
+        </nav>
+        <button id="newProject" class="m-6 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded">+ Add Project</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col p-4 md:p-6">
+        <header class="border-b border-gray-600 pb-4 flex justify-between items-center">
+            <h2 id="currentProjectName" class="text-xl md:text-3xl font-semibold">Select a Project</h2>
+            <span class="text-gray-300" id="currentDate"></span>
+        </header>
+
+        <!-- To-Do List -->
+        <div class="p-4">
+            <form id="addToDoForm" class="flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-3">
+                <input type="text" id="toDoTitle" placeholder="Task Name" class="bg-gray-800 text-white p-3 rounded border border-gray-700 w-full md:w-auto">
+                <input type="date" id="toDoDate" class="bg-gray-800 text-white p-3 rounded border border-gray-700">
+                <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded  md:w-auto">Add</button>
+            </form>
+            <ul id="toDoList" class="mt-6 space-y-1"></ul>
+        </div>
+    </main>
+
+    <script src="bundle.js" type="module"></script>
+    <script>
+        // Sidebar Toggle for Mobile
+        document.getElementById("toggleSidebar").addEventListener("click", () => {
+            document.getElementById("sidebar").classList.remove("-translate-x-full");
+        });
+
+        document.getElementById("closeSidebar").addEventListener("click", () => {
+            document.getElementById("sidebar").classList.add("-translate-x-full");
+        });
+    </script>
+</body>
+</html>
